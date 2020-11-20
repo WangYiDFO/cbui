@@ -16,5 +16,12 @@
             }
         ]
     ],
-    "ignore": ["node_modules"]
+    "ignore": ["node_modules"],
+    "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-transform-shorthand-properties",
+        ["@babel/plugin-transform-computed-properties", {
+            "loose": true
+          }]
+    ]
 }

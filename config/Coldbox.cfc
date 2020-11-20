@@ -17,6 +17,7 @@
 			// Application Setup
 			appName                  : getSystemSetting( "APPNAME", "Your app name here" ),
 			eventName                : "event",
+			applicationPath			 : "c:/wwwroot/cbui/",
 			// Development Settings
 			reinitPassword           : "",
 			reinitKey                : "fwreinit",
@@ -137,7 +138,12 @@
 		 *
 		 * }
 		 */
-		moduleSettings = {};
+		moduleSettings = {
+			htmlhelper : { 
+				 "js_path" : "includes",
+			     "css_path" : "includes"
+			 }
+		};
 
 		/**
 		 * --------------------------------------------------------------------------
@@ -164,7 +170,8 @@
 			viewsLocation    : "views",
 			layoutsLocation  : "layouts",
 			modelsLocation   : "models",
-			eventAction      : "index"
+			eventAction      : "index",
+			IncludesConvention: "includes"
 		};
 	}
 
