@@ -2,7 +2,8 @@
  * I am a new handler
  */
 component{
-
+	property name="userService" inject="UserService";
+	
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -37,6 +38,43 @@ component{
 	 */
 	function index( event, rc, prc ){
 		event.setView( "auth/index" );
+	}
+
+	/**
+	 * login
+	 */
+	function login( event, rc, prc ){
+		try{
+			var user = auth().authenticate(trim(rc.username),trim(rc.password));
+		}
+		catch (InvalidCredentials e){
+			cbMessageBox().error( "Error",  [ "#e.message#"  ]);
+			event.setView( "auth/index" );
+			return;
+		}
+		catch(any e){
+			cbMessageBox().error( "Error",  [ "#e.message#"  ]);
+			event.setView( "auth/index" );
+			return;
+		}
+
+		auth().login(user);
+		
+		cbMessageBox().success( "Success",  [ "Welcome: #user.getUsername()#"  ]);
+		
+		relocate("")		
+	}
+
+	/**
+	 * logout
+	 */
+	function logout( event, rc, prc ){
+		
+		auth().logout();
+		userService.deleteUserSession();
+				
+		cbMessageBox().success( "Success",  [ "Successfully logged out"  ]);
+    	relocate("")
 	}
 
 

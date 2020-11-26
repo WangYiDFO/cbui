@@ -21,7 +21,8 @@
       </div>
     <div class="jumbotron">        
         <hola></hola>
-        <p class="lead">This is a Vue Component. ColdBox Elixir + Vuejs Template support Vuejs Component out of box.</p>
+		<p class="lead">This is a Vue Component. ColdBox Elixir + Vuejs Template support Vuejs Component out of box.</p>
+		<p class="lead">Our App is multi-page app, so each page will have it's own componment under includes/js/viewname/eventname.js</p>
     </div>
 
      <!-- Icons Grid -->

@@ -25,13 +25,23 @@
             writeOutput( '<link rel="stylesheet" type="text/css" href="includes/js/#event.getCurrentView()#.css" />' );
         }
 	</cfscript>
-	
+
 	<!-- Custom fonts for this template -->
 	<link href="includes/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 	<link href="includes/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-	<!--- for VueDevTool debug Vue --->
+	<!--- inject current view javascript, in vue component format--->
+	<cfscript>
+		if ( getCache( "template" ).getOrSet( "view-event-js-#event.getCurrentView()#", function() {
+            return fileExists( expandPath( "includes/js/#event.getCurrentView()#.js" ) );
+        } ) ) {
+			writeOutput( '<script src="includes/js/#event.getCurrentView()#.js"></script>' );
+		}
+		//auth().logout();
+  	</cfscript>	
+
+	<!--- for VueDevTool debug Vue, This NEED to be deleted when deploy --->
 	<script src="http://localhost:8098"></script>
 
 </head>
@@ -66,17 +76,52 @@
 					</div>
 					</li>
 				</ul>
-				<a href="#event.buildLink('auth')#" class="btn btn-outline-primary" role="button" aria-pressed="true" aria-expanded="false">
-					<i class="fa fa-star"></i>  Sign In
-				</a>
+
+				<cfif !auth().isLoggedIn()>
+					<a href="#event.buildLink('auth')#" class="btn btn-outline-primary" role="button" aria-pressed="true" aria-expanded="false">
+						<i class="fa fa-star"></i>  Sign In
+					</a>
+				<cfelse>
+				<ul class="navbar-nav mr-2">
+					<li class="nav-item dropdown">						
+						<a class="nav-link text-dark dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-star"></i>#auth().getUser().getUsername()#  <b class="caret"></b>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<div class="dropdown-item">
+								<form class="form-inline" action="#event.buildLink( 'auth.logout' )#" method="post">
+									<button class="btn btn-outline-primary" type="submit">Sign Out</button>
+								</form>
+						    </div>
+							<div class="dropdown-divider"></div>
+							 <div class="dropdown-item"><i class="fas fa-book"></i>Roles: #auth().getUser().getPermissions().toList()#</div>
+						</div>					
+					</li>
+				  </ul>
+				</cfif>
+				
 			</div>	
 				
 		</div>
 	  </nav>
-    <!---end navbar --->
 
-	<!---Container And Views --->
+	<!--- message box --->
+	<div class="container">
+		#cbMessageBox().renderit()#
+	</div>
+	<!---Container And Views --->	
 	<div class="container" id="app">
+		<!--- alert
+		<div class="jumbotron">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 offset-sm-3">
+						<div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	--->
 		#renderView()#
 	</div>
 
@@ -134,16 +179,6 @@
 	<script src="includes/js/runtime.js"></script>
     <script src="includes/js/vendor.js"></script>
 	<script src="includes/js/app.js"></script>
-
-	<!--- inject current view javascript --->
-	<!---cfdump  var="#event.getCurrentView()#"--->
-	<cfscript>
-		if ( getCache( "template" ).getOrSet( "view-event-js-#event.getCurrentView()#", function() {
-            return fileExists( expandPath( "includes/js/#event.getCurrentView()#.js" ) );
-        } ) ) {
-			writeOutput( '<script src="includes/js/#event.getCurrentView()#.js"></script>' );
-		}
-  	</cfscript>
 
 </body>
 </html>

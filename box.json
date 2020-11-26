@@ -24,10 +24,20 @@
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "hyper":"modules/hyper/",
+        "cbsecurity":"modules/cbsecurity/",
+        "mementifier":"modules/mementifier/",
+        "cbstorages":"modules/cbstorages/",
+        "cbmessagebox":"modules/cbmessagebox/"
     },
     "dependencies":{
-        "coldbox":"^6.0.0"
+        "coldbox":"^6.0.0",
+        "hyper":"^2.3.7",
+        "cbsecurity":"^2.8.0+129",
+        "mementifier":"^2.3.0+116",
+        "cbstorages":"^2.3.0+58",
+        "cbmessagebox":"^3.2.1+49"
     },
     "scripts":{}
 }

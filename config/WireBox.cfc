@@ -33,6 +33,13 @@
 		};
 
 		// Map Bindings below
+		map( "CBTestClient" )
+			.to( "hyper.models.HyperBuilder" )
+			.asSingleton()
+			.initWith(
+				baseUrl = "http://localhost/cbtest/api/v1/",
+				timeout = "120" //seconds, backend could be very slow set to 2 mins
+			);
 	}
 
 }

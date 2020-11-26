@@ -1,7 +1,8 @@
-const elixir 	= require( "coldbox-elixir" );
+const elixir 	  = require( "coldbox-elixir" );
 const webpack 	= require( "webpack" );
 const path      = require('path')
 const glob      = require('glob')
+const fs        = require('fs')
 
 elixir.config.mergeConfig({
     plugins: [
@@ -43,21 +44,22 @@ module.exports = elixir( function( mix ) {
 /*
   this function help to build entries for multi-page app
 */
-function getViewEventJSFiles () {
-    let globPath = './resources/assets/js/*/*.js'
+function getViewEventFiles () {
+    let globPath = './views/*/*.cfm'
     
-    let dirname, jsname, viewname, listViewEvent=[]
+    let dirname, eventname, viewname, listViewEvent=[]
     let files = glob.sync(globPath)
 
     files.forEach(filename =>{
-        // filename ./resources/assets/js/viewname/eventname.js
-        // dirname = ./resources/assets/js/viewname/
+        // filename ./view/viewname/eventname.cfm
+        // dirname = ./view/viewname/
         // viewname = viewname
-        // jsname = evename.js
+        // eventname = eventname
         dirname = path.dirname(filename)
         viewname = dirname.slice(dirname.lastIndexOf('/') + 1)
-        jsname = filename.slice(filename.lastIndexOf('/') + 1)
-        listViewEvent.push(viewname+'/'+jsname)
+        eventname = filename.slice(filename.lastIndexOf('/') + 1)
+        eventname = eventname.slice(0, eventname.lastIndexOf('.'))
+        listViewEvent.push(viewname+'/'+eventname)
     })
 
     return listViewEvent
@@ -66,8 +68,10 @@ function getViewEventJSFiles () {
 
   function addEntry () {
     let entryObj = {}
-    getViewEventJSFiles().forEach(item => {
-        entryObj['includes/js/' + item.slice(0, item.lastIndexOf('.')) ] = './resources/assets/js/' + item
+    getViewEventFiles().forEach(item => {
+      if (fs.existsSync('./resources/assets/js/' + item + '.js')) {
+        entryObj['includes/js/' + item ] = './resources/assets/js/' + item + '.js'
+      }
     })
     return entryObj
   }

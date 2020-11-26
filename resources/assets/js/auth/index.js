@@ -1,28 +1,27 @@
+import Vue from 'vue';
 
+window.Vue = require( 'vue' );
 
-new Vue( {
-    el: '#login',
-    data: {
-      username: '',
-      password: '',
-      hidePassword: true
-    },
-    computed: {
-      passwordType() {
-        return this.hidePassword ? 'password' : 'text'
-      },
-      passwordIcon() {
-        return this.hidePassword ? 'fa-eye' : 'fa-eye-slash'
-      }
+new Vue({
+    el  : '#app',
+    data () {
+        return {
+            submitted: false
+        }
     },
     methods: {
-      doLogin: function() {
-        alert('Not implemented yet :O')
-      }
+        handleSubmit (event) {
+            this.submitted = true;
+        }
     },
     mounted : function() {
         if ( Vue.config.devtools && console.log ) {
-            console.log( 'Login.js mounted!' );
+            console.log( 'ColdBox, Vue and Vueify all set to go!' );
+            console.log( "Vue Version " + Vue.version );
         }
     }
-} );
+  
+})
+
+
+

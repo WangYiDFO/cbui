@@ -142,7 +142,62 @@
 			htmlhelper : { 
 				 "js_path" : "includes",
 			     "css_path" : "includes"
-			 }
+			 },
+			 /**
+			 * --------------------------------------------------------------------------
+			 * cbSecurity Settings
+			 * --------------------------------------------------------------------------
+			 * We have pre-configured cbSecurity to secure the API using JWT Tokens
+			 */
+			cbauth: {
+				userServiceClass: "UserService",
+				// optional, override when needed
+				sessionStorage: "SessionStorage@cbstorages",
+				requestStorage: "RequestStorage@cbstorages"
+			},
+			// CB Security
+			cbSecurity : {
+				// The global invalid authentication event or URI or URL to go 
+				// if an invalid authentication occurs
+				"invalidAuthenticationEvent" : "auth.index",
+				"defaultAuthenticationAction"	: "redirect",
+				// The global invalid authorization event or URI or URL to go 
+				// if an invalid authorization occurs
+				"invalidAuthorizationEvent"  : "main.onInvalidAuthorization",
+				// The validator is an object that will validate rules 
+				// and annotations and provide feedback on either authentication or 
+				// authorization issues.
+				// WireBox ID of the user service to use
+				"userService"                : "UserService",
+				// Force SSL for all relocations
+				"useSSL"            : false,
+				// Activate handler/action based annotation security
+				"handlerAnnotationSecurity"     : true
+			},
+			cbStorages : {
+				cacheStorage : {
+					cachename   : "template", // The CacheBox registered cache to store data in
+					timeout     : 60 // The default timeout of the session bucket, defaults to 60
+				},
+			
+				// Cookie Storage settings
+				cookieStorage : {
+					// Matches the secure attribute of cfcookie, ssl only
+					secure 				: false,
+					// If yes, sets cookie as httponly so that it cannot be accessed using JavaScripts
+					httpOnly			: false,
+					// Applicable global cookie domain
+					domain 				: "cbui.ios.dfo",
+					// Use encryption of values
+					useEncryption 		: false,
+					// The unique seeding key to use: keep it secret, keep it safe
+					encryptionSeed 		: "CBStorages",
+					// The algorithm to use: https://cfdocs.org/encrypt
+					encryptionAlgorithm : "CFMX_COMPAT",
+					// The encryption encoding to use
+					encryptionEncoding 	: "Base64"
+				}
+			}
 		};
 
 		/**

@@ -19,10 +19,13 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.12.5",
+        "axios": "^0.21.0",
         "bootstrap": "^4.4.1",
         "jquery": "^3.5.1",
+        "js-cookie": "^2.2.1",
         "popper.js": "^1.16.1",
-        "vue": "^2.6.10"
+        "vue": "^2.6.10",
+        "vuex": "^3.5.1"
     },
     "scripts": {
         "dev": "webpack",
