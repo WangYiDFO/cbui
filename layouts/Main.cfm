@@ -62,8 +62,11 @@
 					<a class="nav-link" href="#event.buildLink('')#">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-					<a class="nav-link text-dark" href="">Password</a>
+					<a class="nav-link text-dark" href="#event.buildLink('passwords.index')#">Passwords</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="#event.buildLink('contacts.index')#">Contacts</a>
+						</li>
 					<li class="nav-item dropdown">
 					<a class="nav-link text-dark dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Working Steps

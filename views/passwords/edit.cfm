@@ -1,0 +1,1 @@
+<cfoutput>#renderView( view="passwords/editor", args={ title = "Update password" } )#</cfoutput>

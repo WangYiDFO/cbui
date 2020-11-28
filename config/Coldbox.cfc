@@ -143,6 +143,26 @@
 				 "js_path" : "includes",
 			     "css_path" : "includes"
 			 },
+			 cborm = {
+				// Resource Settings
+					resources : {
+						// Enable the ORM Resource Event Loader
+						eventLoader 	: false,
+						// Pagination max rows
+						maxRows 		: 25,
+						// Pagination max row limit: 0 = no limit
+						maxRowsLimit 	: 500
+					},
+				// WireBox Injection bridge
+				injection = {
+					// enable entity injection via WireBox
+					enabled = true, 
+					// Which entities to include in DI ONLY, if empty include all entities
+					include = "", 
+					// Which entities to exclude from DI, if empty, none are excluded
+					exclude = ""
+				}
+			},
 			 /**
 			 * --------------------------------------------------------------------------
 			 * cbSecurity Settings
@@ -163,7 +183,7 @@
 				"defaultAuthenticationAction"	: "redirect",
 				// The global invalid authorization event or URI or URL to go 
 				// if an invalid authorization occurs
-				"invalidAuthorizationEvent"  : "main.onInvalidAuthorization",
+				"invalidAuthorizationEvent"  : "auth.onInvalidAuthorization",
 				// The validator is an object that will validate rules 
 				// and annotations and provide feedback on either authentication or 
 				// authorization issues.
@@ -199,6 +219,12 @@
 				}
 			}
 		};
+        //from doc https://coldbox.ortusbooks.com/the-basics/models/coding-orm-scaffolding/orm
+		orm = { 
+			injection = { 
+				enabled = true 
+			} 
+	    };
 
 		/**
 		 * --------------------------------------------------------------------------

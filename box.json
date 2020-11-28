@@ -29,7 +29,8 @@
         "cbsecurity":"modules/cbsecurity/",
         "mementifier":"modules/mementifier/",
         "cbstorages":"modules/cbstorages/",
-        "cbmessagebox":"modules/cbmessagebox/"
+        "cbmessagebox":"modules/cbmessagebox/",
+        "cborm":"modules/cborm/"
     },
     "dependencies":{
         "coldbox":"^6.0.0",
@@ -37,7 +38,8 @@
         "cbsecurity":"^2.8.0+129",
         "mementifier":"^2.3.0+116",
         "cbstorages":"^2.3.0+58",
-        "cbmessagebox":"^3.2.1+49"
+        "cbmessagebox":"^3.2.1+49",
+        "cborm":"^2.5.0+154"
     },
     "scripts":{}
 }

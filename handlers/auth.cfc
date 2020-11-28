@@ -77,6 +77,10 @@ component{
     	relocate("")
 	}
 
+	function onInvalidAuthorization( event, rc, prc){
+		cbMessageBox().error( "Error",  [ "You are Not Authorized to access the recouces you just visit"  ]);
+		event.setView( "auth/index" );
+	}
 
 
 }

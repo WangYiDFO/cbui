@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#event.buildLink('')#">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+          <li class="breadcrumb-item active" aria-current="auth">Sign In</li>
         </ol>
     </nav>
     <cfif !auth().isLoggedIn()>

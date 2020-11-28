@@ -70,6 +70,10 @@ component accessors="true" {
 			return true;
 		}
 
+		if (UCase(arguments.permission) EQ 'USER'){
+			return isLoggedIn();
+		} 
+
 		if ( isSimpleValue( arguments.permission ) ) {
 			arguments.permission = listToArray( arguments.permission );
 		}

@@ -22,6 +22,23 @@ component{
 	// mapping... if not installed in root folder
 	this.mappings[ '/' ] = COLDBOX_APP_ROOT_PATH
 
+	// In the pseudo constructor, this is in CBROM doc:  https://coldbox-orm.ortusbooks.com/getting-started/installation
+	this.mappings[ "/cborm" ] = COLDBOX_APP_ROOT_PATH & "modules/cborm";
+	// ORM Settings
+	this.ormEnabled       = true;
+	this.datasource       = "cbui-passwordsafe";
+	this.ormSettings      = {
+		cfclocation = "models",
+		dbcreate    = "update",
+		dialect     = "",
+		logSQL         = true,
+		flushAtRequestEnd = false,
+		autoManageSession = false,
+		eventHandling       =  true,
+		eventHandler      = "cborm.models.EventHandler",
+		skipcfcWithError = true // Yes, because we must work in all CFML engines
+	};
+
 	// application start
 	public boolean function onApplicationStart(){
 		application.cbBootstrap = new coldbox.system.Bootstrap( COLDBOX_CONFIG_FILE, COLDBOX_APP_ROOT_PATH, COLDBOX_APP_KEY, COLDBOX_APP_MAPPING );
@@ -36,6 +53,10 @@ component{
 
 	// request start
 	public boolean function onRequestStart( string targetPage ){
+		// If we reinit our app, reinit the ORM too
+		if( application.cbBootstrap.isFWReinit() )
+			ormReload();
+			
 		// Process ColdBox Request
 		application.cbBootstrap.onRequestStart( arguments.targetPage );
 

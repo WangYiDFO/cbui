@@ -3,6 +3,7 @@
 settings.xml
 WEB-INF
 .env
+DBFile/*
 
 # logs + tests
 logs/**
@@ -18,3 +19,4 @@ coldbox/*
 testbox/*
 modules/*
 modules/**/apidocs/**
+
