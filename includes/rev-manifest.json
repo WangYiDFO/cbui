@@ -1,6 +1,5 @@
 {
   "includes/js/auth/index.js": "/includes/js/auth/index.js",
-  "includes/js/contacts/index.css": "/includes/js/contacts/index.css",
   "includes/js/contacts/index.js": "/includes/js/contacts/index.js",
   "includes/js/main/index.css": "/includes/js/main/index.css",
   "includes/js/main/index.js": "/includes/js/main/index.js",

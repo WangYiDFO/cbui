@@ -14,6 +14,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>&nbsp;</th>
@@ -21,18 +22,19 @@
               </thead>
               <tbody>
                 <tr v-for="contact in contacts" :key="contact.name">
+                  <td>{{ contact.contactid }}</td>
                   <td>{{ contact.name }}</td>
                   <td>{{ contact.email }}</td>
                   <td class="text-right">
                     <a href="" @click.prevent="populatecontactToEdit(contact)">Edit</a> -
-                    <a href="" @click.prevent="deletecontact(contact.id)">Delete</a>
+                    <a href="" @click.prevent="deletecontact(contact.contactid)">Delete</a>
                   </td>
                 </tr>
               </tbody>
             </table>
           </b-col>
           <b-col lg="3">
-            <b-card :name="(model.name ? 'Edit contact ID' + model.name : 'New contact')">
+            <b-card :name="(model.contactid ? 'Edit contact ID' + model.name : 'New contact')">
               <form @submit.prevent="savecontact">
                 <b-form-group label="name">
                   <b-form-input type="text" v-model="model.name"></b-form-input>
