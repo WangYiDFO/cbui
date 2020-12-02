@@ -20,10 +20,11 @@ This project:
 
 
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+A list of commonly used resources that I find helpful are listed here.
 
 ### Built With
 
+* [CommandBox](https://www.ortussolutions.com/products/commandbox)
 * [ColdBox](https://coldbox.org)
 * [Bootstrap](https://getbootstrap.com)
 * [VueJS](https://vuejs.org/)
@@ -34,14 +35,16 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is an example of how setup DEV environment.
 
 ### Prerequisites
 
-#### BACKEND RESTFUL server need to be setup first - CBREST Project.
+### BACKEND RESTFUL server need to be setup first: RESTFul services - CBREST Project.
 
-This is an example of how to list things you need to use the software and how to install them.
+FOR Development:
+
+CommandBox and Node.js are requried.
+
 * commandbox (similar to npm for JS, this is Coldfusion package management tool)
   ```sh
   https://www.ortussolutions.com/products/commandbox
@@ -57,7 +60,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/ios-patricia/cbui.git
    ```
-2. Setup IIS Rewrite for new folder for user-friendly URL
+2. Setup IIS Rewrite for new folder for user-friendly URL, Sample:
    ```xml
     <rule name="redirect cbui" stopProcessing="true">
                     <match url="^cbui/(.*)$" />
@@ -68,7 +71,7 @@ This is an example of how to list things you need to use the software and how to
                     <action type="Rewrite" url="/cbui/index.cfm/{R:1}" />
                 </rule>
    ```
-3. Install ColdBox
+3. Install ColdBox and its modules
    ```sh
    box install 
    ```
@@ -81,9 +84,10 @@ This is an example of how to list things you need to use the software and how to
    npm run dev
    ```
 6. Setup NEW DB under Coldfusion Admin
-7. Config.cfconfig.json file and .env file for DB access
+
+7. Config .cfconfig.json file and .env file for DB access
    
-   sample(partial) .cfconfig.json file
+   sample(partial) .cfconfig.json file. ColdBox uses this config file format
 
    ```json
    "datasources" : {
@@ -104,7 +108,7 @@ This is an example of how to list things you need to use the software and how to
 	}
    ```
    
-   sample(partial) .env file
+   sample(partial) .env file. App config info
 
    ```json
    # Database Information
@@ -128,7 +132,38 @@ This is an example of how to list things you need to use the software and how to
 4. Contacts page is for authorized users, and use Javascript REST call
 
 
-
+<!-- File Structure -->
+## File Structure
+```bash
+applicationfolder          // Your ColdBox Application Folder
+├── coldbox/               // ColdBox sytem files, will be installed after we run box install
+├── config/                // ColdBox config file. 
+├── handlers/              // controllers in MVC concept, called handler in ColdBox
+├── includes/              // JS/CSS/as well as some common coldfusion function if needed
+├── interceptors/          // interceptors -- hooks
+├── layouts/               // layouts file ONLY, views under other folder
+├── models/                // models in MVC concept, includes both entity model and service model
+├── modules/               // ColdBox modules, for ex, CBORM, CBSecuirty, Hyper. install after run box install
+├── modules_app/           // HMVC folder for Subapps/Components. for ex: HR/Accouting/Billing 
+├── node_modules/          // node modules for development only. after run npm install
+├── resources/             // JS source folder, similar to _src folder
+├── testbox/               // TDD engine
+├── tests/                 // TDD logic if being used
+├── views/                 // views in MVC concept
+├── .babelrc               // babel config file for transpile JS
+├── .cfconfig.json         // ColdBox running config format
+├── .env                   // App running config .env file
+├── Application.cfc        // ColdBox entry point, need some twicks for mapping and ORM
+├── box.json               // CommandBox config file, similar to packege.json to NPM
+├── favicon.ico
+├── index.cfm              // redirect entry point
+├── package-lock.json
+├── package.json           // npm config file
+├── README.md
+├── robots.txt
+├── server.json            // CommandBox server command config
+└── webpack.config.js      // webpack config for compile JS
+```
 
 <!-- ROADMAP -->
 ## Roadmap

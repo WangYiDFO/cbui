@@ -32,6 +32,6 @@
     "scripts": {
         "dev": "webpack",
         "watch": "npm run dev -- --watch",
-        "prod": "webpack -p -d"
+        "prod": "webpack --mode=production"
     }
 }
