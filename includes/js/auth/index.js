@@ -1,15 +1,1 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["includes/js/auth/index"],{
-
-/***/ "./resources/assets/js/auth/index.js":
-/*!*******************************************!*\
-  !*** ./resources/assets/js/auth/index.js ***!
-  \*******************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_Vue) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\n__webpack_provided_window_dot_Vue = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\nnew vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  el: '#app',\n  data: function () {\n    return {\n      submitted: false\n    };\n  },\n  methods: {\n    handleSubmit: function (event) {\n      this.submitted = true;\n    }\n  },\n  mounted: function () {\n    if (vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].config.devtools && console.log) {\n      console.log('ColdBox, Vue and Vueify all set to go!');\n      console.log(\"Vue Version \" + vue__WEBPACK_IMPORTED_MODULE_0__[\"default\"].version);\n    }\n  }\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! vue/dist/vue.esm.js */ \"./node_modules/vue/dist/vue.esm.js\")[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvYXNzZXRzL2pzL2F1dGgvaW5kZXguanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvYXNzZXRzL2pzL2F1dGgvaW5kZXguanM/ZmE2NCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgVnVlIGZyb20gJ3Z1ZSc7XHJcblxyXG53aW5kb3cuVnVlID0gcmVxdWlyZSggJ3Z1ZScgKTtcclxuXHJcbm5ldyBWdWUoe1xyXG4gICAgZWwgIDogJyNhcHAnLFxyXG4gICAgZGF0YSAoKSB7XHJcbiAgICAgICAgcmV0dXJuIHtcclxuICAgICAgICAgICAgc3VibWl0dGVkOiBmYWxzZVxyXG4gICAgICAgIH1cclxuICAgIH0sXHJcbiAgICBtZXRob2RzOiB7XHJcbiAgICAgICAgaGFuZGxlU3VibWl0IChldmVudCkge1xyXG4gICAgICAgICAgICB0aGlzLnN1Ym1pdHRlZCA9IHRydWU7XHJcbiAgICAgICAgfVxyXG4gICAgfSxcclxuICAgIG1vdW50ZWQgOiBmdW5jdGlvbigpIHtcclxuICAgICAgICBpZiAoIFZ1ZS5jb25maWcuZGV2dG9vbHMgJiYgY29uc29sZS5sb2cgKSB7XHJcbiAgICAgICAgICAgIGNvbnNvbGUubG9nKCAnQ29sZEJveCwgVnVlIGFuZCBWdWVpZnkgYWxsIHNldCB0byBnbyEnICk7XHJcbiAgICAgICAgICAgIGNvbnNvbGUubG9nKCBcIlZ1ZSBWZXJzaW9uIFwiICsgVnVlLnZlcnNpb24gKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbiAgXHJcbn0pXHJcblxyXG5cclxuXHJcbiJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBRUE7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBREE7QUFHQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFqQkE7QSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/assets/js/auth/index.js\n");
-
-/***/ })
-
-},[["./resources/assets/js/auth/index.js","includes/js/runtime","includes/js/vendor"]]]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{37:function(o,e,n){"use strict";n.r(e),function(o){var e=n(8);n(8),new e.default({el:"#app",data:function(){return{submitted:!1}},methods:{handleSubmit:function(o){this.submitted=!0}},mounted:function(){e.default.config.devtools&&console.log&&(console.log("ColdBox, Vue and Vueify all set to go!"),console.log("Vue Version "+e.default.version))}})}.call(this,n(8).default)}},[[37,0,1]]]);

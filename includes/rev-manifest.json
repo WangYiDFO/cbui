@@ -1,10 +1,10 @@
 {
+  "includes/js/runtime.js": "/includes/js/runtime.js",
+  "includes/js/vendor.js": "/includes/js/vendor.js",
   "includes/js/auth/index.js": "/includes/js/auth/index.js",
   "includes/js/contacts/index.js": "/includes/js/contacts/index.js",
   "includes/js/main/index.css": "/includes/js/main/index.css",
   "includes/js/main/index.js": "/includes/js/main/index.js",
-  "includes/js/runtime.js": "/includes/js/runtime.js",
-  "includes/js/vendor.js": "/includes/js/vendor.js",
   "includes/css/app.css": "/includes/css/app.css",
   "includes/css/app.js": "/includes/css/app.js",
   "includes/js/app.js": "/includes/js/app.js"

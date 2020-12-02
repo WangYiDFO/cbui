@@ -43,7 +43,7 @@ component accessors="true" singleton {
 			password: arguments.password
 		  })
 		  .asJson()
-		  .post()
+		  .post();
 
 		if (retVal.isSuccess() AND !retVal.json().error ){
 			var data = retVal.json().data;
@@ -59,7 +59,7 @@ component accessors="true" singleton {
 
 			cookieStorage.set("bearer-token", data.token);
 
-			return true
+			return true;
 		}
 		else{
 			sessionStorage.delete("currentUser");
@@ -75,7 +75,7 @@ component accessors="true" singleton {
 	 */
 	function retrieveUserByUsername( required username ) {
 
-        var user = sessionStorage.get("currentUser", new())
+        var user = sessionStorage.get("currentUser", new());
 		//var user = new();
 		//user.setId("2323");
 		//	user.setUserName("test");

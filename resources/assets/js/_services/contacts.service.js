@@ -9,7 +9,7 @@ export const contactService = {
 };
 
 const client = axios.create({
-    baseURL: 'http://localhost/cbtest/api/v1',
+    baseURL: '/cbtest/api/v1',
     json: true
   })
   

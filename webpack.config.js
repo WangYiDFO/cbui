@@ -1,8 +1,9 @@
 const elixir 	  = require( "coldbox-elixir" );
 const webpack 	= require( "webpack" );
-const path      = require('path')
-const glob      = require('glob')
-const fs        = require('fs')
+const path      = require('path');
+const glob      = require('glob');
+const fs        = require('fs');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 elixir.config.mergeConfig({
     plugins: [
@@ -14,8 +15,10 @@ elixir.config.mergeConfig({
             "window.$"     : "jquery",
                   "Vue"          : ["vue/dist/vue.esm.js", "default"],
                   "window.Vue"   : ["vue/dist/vue.esm.js", "default"]
-              })
+              }),
+        //new BundleAnalyzerPlugin()
     ],
+    devtool: '', // Removed dev-tools mapping
     entry: addEntry(),
     output: {
       filename: '[name].js'
@@ -37,7 +40,8 @@ module.exports = elixir( function( mix ) {
 		// Mix App styles
 		.sass( "app.scss" )
 		// Mix JS and VueJS components
-		.vue( "app.js" );
+    .vue( "app.js" );
+  
 } );
 
 

@@ -28,7 +28,8 @@
 			 "password":"${DB_PASSWORD}",
 			 "connectionLimit":"100",
 			 "connectionTimeout":"1",
-			 "dbfolder":"${DB_FOLDER}"
+			 "dbfolder":"${DB_FOLDER}",
+			 "dialect":"${DB_DIALECT}"
 		 }
 	}
 }

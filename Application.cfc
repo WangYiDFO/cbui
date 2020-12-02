@@ -20,7 +20,7 @@ component{
 	COLDBOX_APP_KEY 		 = "";
 
 	// mapping... if not installed in root folder
-	this.mappings[ '/' ] = COLDBOX_APP_ROOT_PATH
+	this.mappings[ '/' ] = COLDBOX_APP_ROOT_PATH;
 
 	// In the pseudo constructor, this is in CBROM doc:  https://coldbox-orm.ortusbooks.com/getting-started/installation
 	this.mappings[ "/cborm" ] = COLDBOX_APP_ROOT_PATH & "modules/cborm";
@@ -30,7 +30,7 @@ component{
 	this.ormSettings      = {
 		cfclocation = "models",
 		dbcreate    = "update",
-		dialect     = "",
+		dialect     = "Derby",
 		logSQL         = true,
 		flushAtRequestEnd = false,
 		autoManageSession = false,

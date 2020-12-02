@@ -62,7 +62,7 @@ component{
 		
 		cbMessageBox().success( "Success",  [ "Welcome: #user.getUsername()#"  ]);
 		
-		relocate("")		
+		relocate("");		
 	}
 
 	/**
@@ -74,7 +74,7 @@ component{
 		userService.deleteUserSession();
 				
 		cbMessageBox().success( "Success",  [ "Successfully logged out"  ]);
-    	relocate("")
+    	relocate("");
 	}
 
 	function onInvalidAuthorization( event, rc, prc){
